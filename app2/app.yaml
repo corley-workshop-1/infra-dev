@@ -36,7 +36,7 @@ spec:
             secretKeyRef:
               key: mysql_root_password
               name: mysql-config
-        image: wdalmut/sky-app2:11
+        image: wdalmut/sky-app2:13
         name: hello-pod
         ports:
         - containerPort: 3000
