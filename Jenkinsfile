@@ -10,14 +10,13 @@ pipeline {
                     sh 'echo $GPG_PASS > key.txt'
                     sh 'touch dummy.txt'
                     sh 'gpg --batch --yes --passphrase-file key.txt --pinentry-mode=loopback -s dummy.txt'
-                    sh 'sops -i --decrypt db/config.yaml'
-                    sh 'cat db/config.yaml'
                 }
             }
         }
         stage('Deploy in Dev environment') {
             agent any
             steps {
+                sh 'sops -i --decrypt db/config.yaml'
                 sh 'kubectl version'
                 sh 'kubectl apply -f . --recursive'
             }
