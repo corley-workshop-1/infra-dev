@@ -23,7 +23,7 @@ spec:
       - env:
         - name: NODE_PORT
           value: "3000"
-        image: wdalmut/sky-app1:8
+        image: wdalmut/sky-app1:9
         name: hello-pod
         ports:
         - containerPort: 3000
